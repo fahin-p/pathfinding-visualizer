@@ -1,5 +1,6 @@
 // Get the grid container element from the HTML
 const gridContainer = document.getElementById('grid-container');
+const messageDisplay = document.getElementById('message-display');
 
 // Define the size of our grid
 const GRID_WIDTH = 50; // 50 nodes wide
@@ -79,6 +80,7 @@ function clearBoard() {
     });
     startNode = null;
     endNode = null;
+    messageDisplay.textContent = ''; 
 }
 
 function handleNodeClick(node) {
@@ -115,6 +117,7 @@ function handleNodeHover(node) {
 
 // This is the main function that starts the visualization
 visualizeBtn1.addEventListener('click', () => {
+    messageDisplay.textContent = '';
     if (!startNode || !endNode) {
         alert("Please set a start and end node!");
         return;
@@ -135,6 +138,7 @@ visualizeBtn1.addEventListener('click', () => {
 });
 
 visualizeBtn2.addEventListener('click', () => {
+    messageDisplay.textContent = '';
     if (!startNode || !endNode) {
         alert("Please set a start and end node!");
         return;
@@ -240,7 +244,7 @@ function animateShortestPath(nodesMap, endNodeObject) {
 
     // If no path exists
     if (!currentNode || currentNode.previousNode === null) {
-        console.log("No path found to animate!");
+        messageDisplay.textContent = "No optimal path found!"; // THIS IS THE NEW LINE
         return;
     }
 
