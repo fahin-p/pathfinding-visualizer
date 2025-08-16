@@ -278,7 +278,6 @@ function aStar(nodesMap, startNode, endNode) {
     const unvisitedNodes = Object.values(nodesMap);
 
     while (unvisitedNodes.length) {
-        // Inside your new aStar function
     unvisitedNodes.sort((a, b) => {
         const fCostA = a.distance + manhattanDistance(a, endNode);
         const fCostB = b.distance + manhattanDistance(b, endNode);
